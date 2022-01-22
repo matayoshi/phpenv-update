@@ -11,7 +11,7 @@ for arg; do
   -v | --verbose ) verbose=true ;;
   -q | --quiet | --silent ) quiet=true ;;
   * )
-    echo "command phpenv update $@"
+    echo "command phpenv update-all $@"
     exit ;;
   esac
 done
@@ -30,13 +30,13 @@ colorize() {
 
 case "$shell" in
   fish )
-    echo "if command phpenv update $@"
+    echo "if command phpenv update-all $@"
       if [ -z "$quiet" ]; then colorize "Reloading phpenv\n"; fi
       if [ -z "$noop" ];  then echo "  source (phpenv init -|psub)"; fi
       if [ -z "$quiet" ]; then colorize " | " "done\n"; fi
     echo "end" ;;
   * )
-    echo "if command phpenv update $@; then"
+    echo "if command phpenv update-all $@; then"
       if [ -z "$quiet" ]; then colorize "Reloading phpenv\n"; fi
       if [ -z "$noop" ];  then echo "  eval \"\$(phpenv init -)\";"; fi
       if [ -z "$quiet" ]; then colorize " | " "done\n"; fi

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Usage: phpenv update [--noop|--verbose|--quiet]
+# Usage: phpenv update-all [--noop|--verbose|--quiet]
 # Summary: Updates to latest version of phpenv and plugins from git.
 set -e
 [ -n "$PHPENV_DEBUG" ] && set -x
@@ -20,10 +20,10 @@ for arg; do
     echo --verbose
     exit ;;
   --help )
-    exec phpenv-help update
+    exec phpenv-help update-all
     ;;
   * )
-    phpenv-help --usage update >&2
+    phpenv-help --usage update-all >&2
     exit 1 ;;
   esac
 done
